@@ -14,17 +14,22 @@ int main()
         vector<int> v(n);
         for (int &x : v)
             cin >> x;
-        int cnt = 0;
+
         for (int i = 0; i < n; i++)
         {
-
-            if (c > 0 && v[i] < c)
-            {
-                c -= (v[i] + i + 1);
-                cnt++;
-            }
+            v[i] += (i + 1);
         }
-        cout << cnt << endl;
+        sort(v.begin(), v.end());
+        int sum = 0, ans = 0;
+        for (int x : v)
+        {
+            if (sum + x > c)
+                break;
+
+            sum += x;
+            ans++;
+        }
+        cout << ans << endl;
     }
     return 0;
 }

@@ -11,8 +11,13 @@ int32_t main()
     cin >> t;
     while (t--)
     {
-        int a, b, n, s;
+        ll a, b, n, s;
         cin >> a >> b >> n >> s;
+
+        if (s % n <= b && (a * n) + b >= s)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
     }
     return 0;
 }

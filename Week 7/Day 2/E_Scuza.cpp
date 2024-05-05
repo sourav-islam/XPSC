@@ -19,9 +19,7 @@ int32_t main()
         for (ll &y : ques)
             cin >> y;
 
-        sort(steps.begin(), steps.end());
-
-        vector<ll> pre(n);
+            vector<ll> pre(n);
         pre[0] = steps[0];
         for (int i = 1; i < steps.size(); i++)
         {
@@ -52,11 +50,10 @@ int32_t main()
                 if (steps[mid] <= ques[i])
                 {
                     ans = mid;
-                    r = mid - 1;
+                    l = mid + 1;
                 }
                 else
-
-                    l = mid + 1;
+                    r = mid - 1;
             }
 
             cout << pre[ans] << " ";

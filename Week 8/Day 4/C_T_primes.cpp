@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
+/* #include <bits/stdc++.h>
 using namespace std;
-typedef long long int ll;
-// #define int long long
+typedef long long ll ll;
+// #define ll long long
 #define pp(x) cout << x << "\n"
-int32_t main()
+ll32_t main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
@@ -35,5 +35,45 @@ int32_t main()
         //     cout << va << " ";
     }
 
+    return 0;
+} */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+// #define int long long
+#define pp(x) cout << x << "\n"
+const int N = 1e6;
+int32_t main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    // sieve of Eratosthenes
+    vector<ll> prime(N + 1, true);
+    for (ll i = 2; i * i <= N; i++)
+    {
+        if (prime[i])
+        {
+            for (ll j = i + i; j <= N; j += i)
+            {
+                prime[j] = false;
+            }
+        }
+    }
+    ll t;
+    cin >> t;
+    while (t--)
+    {
+        ll x, sqt;
+        cin >> x;
+
+        sqt = sqrt(x);
+        if (x == 1)
+            cout << "NO" << '\n';
+        else if (prime[sqt] && (sqt * sqt) == x)
+            cout << "YES" << '\n';
+        else
+            cout << "NO" << '\n';
+    }
     return 0;
 }

@@ -18,18 +18,7 @@ int32_t main()
     {
         int n;
         cin >> n;
-        int ans = 0;
-        for (int i = 1; i <= n; i++)
-        {
-            for (int j = 1; j <= n; j++)
-            {
-                if (i < j)
-                {
-                    ans = max(ans, gcd(i, j));
-                }
-            }
-        }
-        cout << ans << endl;
+        cout << n / 2 << "\n";
     }
     return 0;
 }

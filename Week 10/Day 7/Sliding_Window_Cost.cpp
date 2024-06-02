@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
+#define ll long long
 using namespace __gnu_pbds;
 using namespace std;
 template <typename T>
@@ -18,7 +19,7 @@ int main()
         cin >> a[i];
     pbds<int> p;
     int l = 0, r = 0;
-    int ans = 0;
+    ll ans = 0;
     while (r < n)
     {
         if (r - l + 1 == k)
@@ -27,7 +28,7 @@ int main()
             for (auto val : p)
                 ans += abs(*median - val);
             cout << ans << " ";
-            p.erase(l);
+            p.erase(p.find_by_order(p.order_of_key(a[l])));
             l++;
         }
         else
@@ -37,5 +38,3 @@ int main()
 
     return 0;
 }
-
-

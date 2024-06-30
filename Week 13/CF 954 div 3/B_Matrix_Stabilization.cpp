@@ -3,6 +3,16 @@ using namespace std;
 typedef long long int ll;
 // #define int long long
 #define pp(x) cout << x << "\n"
+const int N = 100 + 5;
+vector<vector<int>> a(N, vector<int>(N, 0));
+
+int dx[] = {-1, 0, 1, 0};
+int dy[] = {0, -1, 0, 1};
+ll n, m;
+bool valid(int i, int j)
+{
+    return (i >= 0 && i < n && j >= 0 && j < m);
+}
 int32_t main()
 {
     ios::sync_with_stdio(false);
@@ -12,39 +22,36 @@ int32_t main()
     cin >> t;
     while (t--)
     {
-        ll n, m;
+
         cin >> n >> m;
-        vector<vector<ll>> a(n + 2, vector<ll>(m + 2, 0));
-        for (ll i = 1; i <= n; i++)
+
+        for (ll i = 0; i < n; i++)
         {
-            for (ll j = 1; j <= m; j++)
+            for (ll j = 0; j < m; j++)
             {
                 cin >> a[i][j];
             }
         }
 
-        for (ll i = 1; i <= n; i++)
+        for (int i = 0; i < n; i++)
         {
-            for (ll j = 1; j <= m; j++)
+            for (int j = 0; j < m; j++)
             {
-
-                bool change = true;
-                while (change && (a[i][j] > a[i][j + 1] && a[i][j] > a[i][j - 1] && a[i][j] > a[i + 1][j] && a[i][j] > a[i - 1][j]))
+                int mx = 0;
+                for (int k = 0; k < 4; k++)
                 {
-                    if (a[i][j] == 1e9)
-                        a[i][j] = 1;
-                    else
-                        a[i][j] = a[i][j] - 1;
-
-                    if ((a[i][j] < a[i][j + 1] || a[i][j] < a[i][j - 1] || a[i][j] < a[i + 1][j] || a[i][j] < a[i - 1][j]))
-                        change = false;
+                    int x_idx = i + dx[k], y_idx = j + dy[k];
+                    if (valid(x_idx, y_idx))
+                    {
+                        mx = max(mx, a[x_idx][y_idx]);
+                    }
                 }
+                a[i][j] = min(mx, a[i][j]);
             }
         }
-
-        for (ll i = 1; i <= n; i++)
+        for (ll i = 0; i < n; i++)
         {
-            for (ll j = 1; j <= m; j++)
+            for (ll j = 0; j < m; j++)
             {
                 cout << a[i][j] << " ";
             }

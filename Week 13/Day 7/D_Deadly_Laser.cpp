@@ -28,6 +28,13 @@ int32_t main()
         {
             cout << "-1\n";
         }
+
+        /*  if (sx - d < 1 && sy + d > m)
+            cout << -1 << endl;
+        else if (sy - d < 1 && sx + d > n)
+            cout << -1 << endl;
+        else
+            cout << n + m - 2 << endl; */
     }
     return 0;
 }

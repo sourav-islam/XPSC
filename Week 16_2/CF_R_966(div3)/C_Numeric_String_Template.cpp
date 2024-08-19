@@ -64,10 +64,10 @@ int32_t main()
                         break;
                     }
                 } */
-                if (y.size() == 1)
+               /*  if (y.size() == 1)
                 {
                     cout << x << " " << *y.begin() << " " << y.size() << endl;
-                }
+                } */
             }
             // cout << (ok ? "YES" : "NO") << endl;
         }

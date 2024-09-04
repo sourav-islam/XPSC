@@ -48,10 +48,15 @@ int32_t main()
     {
         int x, y, k;
         cin >> x >> y >> k;
-        if (ceil(x * 1.0 / k) <= ceil(y * 1.0 / k))
-            cout << 2 * ceil(y * 1.0 / k) << "\n";
+
+        // int a = ceil(x * 1.0 / k);
+        // int b = ceil(y * 1.0 / k);
+        int a = (x + k - 1) / k;
+        int b = (y + k - 1) / k;
+        if (a <= b)
+            cout << 2 * b << "\n";
         else
-            cout << 2 * ceil(x * 1.0 / k) - 1 << "\n";
+            cout << 2 * a - 1 << "\n";
     }
 
     return 0;
